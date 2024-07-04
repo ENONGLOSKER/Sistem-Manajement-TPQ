@@ -1,0 +1,208 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block konten%}
+<div id="content">
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="">
+            <h1 class="h3 mb-0 text-gray-800 font-weight-bold">GALERI TPQ</h1>
+        </div>
+
+        <!-- sweet alert -->
+        <!-- {%for message in messages%}
+        {% if message.tags == 'success' %}                     
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>                                            
+        <script>
+            var m="{{message}}";
+            swal("Login",m,"success");
+        </script>
+        {%else%}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>                                            
+        <script>
+            var m="{{message}}";
+            swal("Login",m,"danger");
+        </script>
+        {% endif %}
+        {%endfor%} -->
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                    aria-labelledby="searchDropdown">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">    
+                <a class="nav-link dropdown-toggle" href="" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform: capitalize;">{{user}}</span>
+                    <img class="img-profile rounded-circle"
+                        src="{%static 'img/icon.png'%}">
+                </a>
+                <!-- Dropdown - User Information -->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+                
+
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                  
+                    <div class="dropdown-divider"></div>
+                    <a href="{% url 'signout' %}" onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </button>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+    <!-- End of Topbar -->
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800" >Data GALERI TPQ<h1>
+                
+                <a href="{% url 'GALERI_create' %}"  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-plus fa-sm text-white-50"></i>  Add GALERI
+                </a>  
+        </div>
+
+        <div class="row">
+            <!-- Area tabel -->
+            <div class="col-xl-12 col-lg-9">
+                <div class="card shadow mb-UKM 4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Data GALERI TPQ </h6>
+                        </div>
+                        <div class="card-body table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>TPQ</th>                                            
+                                            <th>NAMA GALERI</th>
+                                            <th>NOMOR HP</th>
+                                            <th>EMAIL</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                                                                                                                                                                                  
+                                    {%for data in gurus%}                                                
+                                        <tr style="text-transform: capitalize;">
+                                            <td class="text-center">{{forloop.counter}}</td>
+                                            <td>
+                                                <span class="badge bg-primary text-white" style="padding: 6px 10px">{{data.tpq}}</span>
+                                            </td> 
+                                            <td>{{data.nama}}</td>
+                                            <td class="text-center">{{data.nomor_hp}}</td>
+                                            <td>{{data.email}}</td>
+                                            <td class="text-center" >
+                                                <a href="{% url 'guru_update' pk=data.pk %}" class="btn btn-warning btn-icon-split mb-1 ">
+                                                    <span class="icon text-white-25">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>                                                                
+                                                </a>
+                                                
+                                                <a href="{% url 'guru_delete' pk=data.pk %}" class="btn btn-danger btn-icon-split mb-1" onclick="return confirm('yakin ingin menghapus data?')">
+                                                    <span class="icon text-white-25">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>                                                                
+                                                </a>
+                                            </td>
+                                        
+                                        </tr> 
+                                    {%endfor%}
+                                    </tbody>
+                                </table>
+                                <!-- Pagination -->
+                                <!-- <div class="d-flex justify-content-center">
+                                    <ul class="pagination">
+                                        {% if datas.has_previous %}
+                                            <li class="page-item"><a class="page-link" href="?cari={{ request.GET.cari|default_if_none:'' }}&page={{ datas.previous_page_number }}">Previous</a></li>
+                                        {% else %}
+                                            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                                        {% endif %}
+                                
+                                        {% for num in datas.paginator.page_range %}
+                                            {% if datas.number == num %}
+                                                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                            {% else %}
+                                                <li class="page-item"><a class="page-link" href="?cari={{ request.GET.cari|default_if_none:'' }}&page={{ num }}">{{ num }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                
+                                        {% if datas.has_next %}
+                                            <li class="page-item"><a class="page-link" href="?cari={{ request.GET.cari|default_if_none:'' }}&page={{ datas.next_page_number }}">Next</a></li>
+                                        {% else %}
+                                            <li class="page-item disabled"><span class="page-link">Next</span></li>
+                                        {% endif %}
+                                    </ul>
+                                </div> -->
+                        </div>
+                    </div>                               
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{%endblock konten%}
+
+
+<!-- SCRIPT -->   
+{%block script%}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currencyElements = document.querySelectorAll('.currency');
+        currencyElements.forEach(function(element) {
+            const amount = parseFloat(element.textContent);
+            const formattedAmount = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(amount);
+            element.textContent = formattedAmount;
+        });
+    });
+</script>
+
+{%endblock script%}

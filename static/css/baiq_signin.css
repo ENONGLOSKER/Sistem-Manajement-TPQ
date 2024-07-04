@@ -1,0 +1,108 @@
+:root {
+    /* warna */
+    --satu: #FFF7F8;
+    --dua: #027BFF; 
+    --tiga: #323232; 
+    --empat: #ffffff; 
+
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+}
+body{
+    background-color: var(--satu);
+}
+
+
+
+#bg{
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+}
+.judul{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 30px;
+}
+span{
+    color: rgb(249, 8, 72);
+}
+
+.container{
+    margin: 10px  127px;
+}
+/* .container .title{
+    margin: 70px auto;
+    width: 60%;
+    padding: 10px;
+} */
+/* .container .title .form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 5px 2px 50px rgba(214, 214, 214, 0.715);
+    border-radius: 12px;
+} */
+/* .container .title .form form{
+    height: 400px;
+    padding: 14px 20px;
+    margin-left: 20px;
+} */
+.container .title .form form h4{
+    font-size: 24px;
+    color: #f9bd09;
+    font-weight: 600;
+}
+.container .title .form form h6{
+    
+    font-weight: 200;
+}
+.container .title .form form label{
+    margin-bottom: 50px;
+    line-height: 40px;
+}
+.container .title .form form label input{
+    width: 100%;
+    height: 40px;
+    padding: 14px 18px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    border: 1px solid #CCCACA;
+}
+.container .title .form form button{
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    background-color: #027BFF;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    border: none;
+}
+.container .title .form form button:hover{
+    background-color: #0970dd;
+    box-shadow: 2px 1px 50px #ffe35663;
+    cursor: pointer;
+}
+.container .title .form form #kembali{
+    margin-top: 40px;
+    font-size: 14px;
+    text-align: center;
+}
+.container .title .form form #kembali a{
+    text-decoration: none;
+    color: #f9bd09;
+    font-weight: 600;
+}

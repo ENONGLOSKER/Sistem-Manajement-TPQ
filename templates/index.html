@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPQ - SURALAGA</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="{%static 'img/icon.png'%}" rel="icon">    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        .tpq-item:hover{
+            background-color: var(--satu);
+            transform: rotate(6deg);
+        }
+        .img-card img:hover{
+            transform: scale(105%);
+        }
+        .galeri-img .img-card h3{
+            text-align: left;
+            padding: 10px 20px;
+            color:var(--satu) ;
+        }
+
+        .galeri-img .img-card p{
+            padding: 0 20px;
+            text-align: left;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    {%for message in messages%}
+        {% if message.tags == 'error' %}                     
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>                                            
+        <script>
+            var m="{{message}}";
+            swal("Login",m,"error");
+        </script>
+        {% endif %}
+    {%endfor%}
+
+    <!-- navbar -->
+    <nav>
+        <img src="{% static 'img/logo.png' %}" alt="">
+
+        <ul>
+            <li><a href="{% url 'index' %}">HOME</a></li>
+            <li><a href="#about">ABAOUT</a></li>
+            <li><a href="#galeri">GALERI</a></li>
+            <li><a href="#tpq">TPQ</a></li>
+        </ul>
+
+        <a href="{% url 'signin' %}" class="btn" target="_blank">SIGN IN</a>
+    </nav>
+
+    <!-- header -->
+    <header>
+        <span>Pengelolaan Bersama</span>
+        <h1 class="animate-text">Sistem Manajemen TPQ di Desa Suralaga</h1>
+
+        <div class="head-title">
+            <div class="head-img">
+                <img src="{% static 'img/head-img1.png' %}" alt="">
+                <img src="{% static 'img/head-img2.png' %}" alt="">
+            </div>
+            <div class="head-btn">
+                <p>Taman Pendidikan Quran Suralaga Terpadu. Menghubungkan Guru, Siswa, dan Komunitas dalam Satu Platform</p>
+                <div class="btn">
+                    <a href="{% url 'dashboard' %}" target="_blank">Dashboard</a>
+                    <a href="#hadis">Lebih Lengkap</a>
+                </div>
+            </div>
+        </div>
+    
+    </header>
+
+    <div class="hadis" id="hadis">
+        <h3>قَالَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ : أَفْضَلُ عِبَادَةِ أُمَّتِي قِرَاءَةُ الْقُرْآنِ</h3>
+        <p>Rasulullah shallahu ‘alaihi wasallam bersabda, “Sebaik-baiknya ibadah umatku adalah membaca Al-Qur’an.” (HR. al-Baihaqi)</p>
+    </div>
+
+
+    <!-- about -->
+    <div class="about" id="about">
+        <img src="{% static 'img/about-img.png' %}" alt="">
+        <div class="about-title">
+            <span>ABOUT</span>
+            <h2>Sistem Manajemen TPQ</h2>
+            <p>Sistem manajemen TPQ di Suralaga adalah fondasi modern 
+                untuk mengintegrasikan guru, siswa, dan komunitas dalam 
+                satu platform. Dengan teknologi ini, TPQ dapat  
+                mengoptimalkan pengelolaan pembelajaran, jadwal, dan 
+                keterlibatan komunitas, memastikan efisiensi dan pelayanan 
+                yang terbaik untuk pendidikan agama yang berkelanjutan dan 
+                berdaya saing.</p>
+        </div>
+    </div>
+
+
+    <!-- galeri -->
+    <div class="galeri" id="galeri">
+        <div class="galeri-title">
+            <span>GALERI</span>
+            <h2>Membingkai Keindahan Galeri Visual</h2>
+        </div>
+
+        <div class="galeri-img">
+            <div class="img-card">
+                <img src="{% static 'img/galeri-img.png' %}" alt="">
+                <h3>Belajar & Mengajar Al-Qur'an</h3>
+                <p>Pembacaan dan hafalan ayat-ayat Al-Qur'an, tajwid (tata cara membaca Al-Qur'an dengan benar) dan makhraj (tempat keluarnya huruf-huruf hijaiyah)</p>
+            </div>
+            <div class="img-card">
+                <img src="{% static 'img/galeri-img.png' %}" alt="">
+                <h3>Kajian dan Tafsir Al-Qur'an</h3>
+                <p>Pengkajian tafsir ayat-ayat Al-Qur'an dengan diskusi mengenai makna dan aplikasi ayat-ayat dalam kehidupan sehari-hari</p>
+            </div>
+            <div class="img-card">
+                <img src="{% static 'img/galeri-img.png' %}" alt="">
+                <h3>Peringatan Hari Besar Islam</h3>
+                <p>Peringatan Maulid Nabi Muhammad SAW, Isra' Mi'raj, Nuzulul Qur'an dan Peringatan Tahun Baru Hijriyah</p>
+            </div>
+            <div class="img-card">
+                <img src="{% static 'img/galeri-img.png' %}" alt="">
+                <h3>Kegiatan Sosial dan Keagamaan</h3>
+                <p>Gotong royong membersihkan lingkungan TPQ, santunan kepada yatim piatu atau fakir miskin dan Ziarah ke makam ulama atau tokoh agama</p>
+            </div>
+            <div class="img-card">
+                <img src="{% static 'img/galeri-img.png' %}" alt="">
+                <h3>Pelatihan dan Workshop</h3>
+                <p>Pelatihan metode cepat membaca Al-Qur'an, kaligrafi Al-Qur'an serta Pelatihan tata cara mengajar Al-Qur'an bagi para pengajar</p>
+            </div>
+            <div class="img-card">
+                <img src="{% static 'img/galeri-img.png' %}" alt="">
+                <h3>Lomba dan Kompetisi</h3>
+                <p>Lomba hafalan Al-Qur'an (tahfidz), adzan dan iqamah serta kaligrafi</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- tpq -->
+    <div class="tpq" id="tpq">
+        <div class="tpq-title">
+            <span>TPQ</span>
+            <h2>Daftar List TPQ di Suralaga</h2>
+        </div>
+        <div class="list-tpq">
+            {%for data in datas %}
+            <div class="tpq-item">
+                <div class="tpq-subitem">
+                    <img src="{% static 'img/tpq-logo.png' %}" alt="">
+
+                    <div class="tpq-nama">
+                        <span>TPQ</span>
+                        <h3>{{data.nama}}</h3>
+                    </div>
+                </div>
+
+                <a href="">Details</a>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-title">
+            <div class="footer-kiri">
+                <div class="footer-img">
+                    <img src="{% static 'img/logo.png' %}" alt="">
+
+                    <p>Taman Pendidikan Quran Suralaga Terpadu. Menghubungkan Guru, Siswa, dan Komunitas dalam Satu Platform</p>
+                </div>
+
+                <p>Copyright © 2024 EL-TQP </p>
+            </div>
+
+            <div class="footer-kanan">
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABAOUT</a></li>
+                    <li><a href="">GALERI</a></li>
+                    <li><a href="">TPQ</a></li>
+                </ul>
+
+                <div class="footer-media">
+                    <a href=""><img src="{% static 'img/yt.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/fb.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/ig.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/tk.png' %}" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 20px;">
+    </footer>
+</body>
+</html>

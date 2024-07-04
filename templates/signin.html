@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPQ - SURALAGA</title>
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <link href="{%static 'img/icon.png'%}" rel="icon">    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        .tpq-item:hover{
+            background-color: var(--satu);
+            transform: rotate(6deg);
+        }
+        .img-card img:hover{
+            transform: scale(105%);
+        }
+        .galeri-img .img-card h3{
+            text-align: left;
+            padding: 10px 20px;
+            color:var(--satu) ;
+        }
+
+        .galeri-img .img-card p{
+            padding: 0 20px;
+            text-align: left;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <nav>
+        <img src="{% static 'img/logo.png' %}" alt="">
+
+        <ul>
+            <li><a href="{% url 'index' %}">HOME</a></li>
+            <li><a href="{% url 'index' %}">ABAOUT</a></li>
+            <li><a href="{% url 'index' %}">GALERI</a></li>
+            <li><a href="{% url 'index' %}">TPQ</a></li>
+        </ul>
+
+        <a href="" class="btn">SIGN IN</a>
+    </nav>
+
+    <!-- sign in -->
+    <div class="signin">
+        <div class="kiri">
+            <img src="{% static 'img/logo-white.png' %}" alt="">
+            <div class="kiri-img">
+                <img src="{% static 'img/img-login.png' %}" alt="">
+                <p>Taman Pendidikan Quran Suralaga Terpadu. Menghubungkan Guru, Siswa, dan Komunitas dalam Satu Platform</p>
+            </div>
+        </div>
+
+        <div class="kanan">
+            <h1>Sign in</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="username">
+                    Username
+                    <input type="text" name="username" id="username" required>
+                </label>
+                <label for="password">
+                    Password
+                    <input type="password" name="password" id="password" required>
+                </label>
+                <br>
+
+                <button type="submit">Sign in</button>
+            </form>
+            <p>Kembali ke halaman Utama</p>
+        </div>
+    </div>
+
+    
+    
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-title">
+            <div class="footer-kiri">
+                <div class="footer-img">
+                    <img src="{% static 'img/logo.png' %}" alt="">
+
+                    <p>Taman Pendidikan Quran Suralaga Terpadu. Menghubungkan Guru, Siswa, dan Komunitas dalam Satu Platform</p>
+                </div>
+
+                <p>Copyright © 2024 EL-TQP </p>
+            </div>
+
+            <div class="footer-kanan">
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABAOUT</a></li>
+                    <li><a href="">GALERI</a></li>
+                    <li><a href="">TPQ</a></li>
+                </ul>
+
+                <div class="footer-media">
+                    <a href=""><img src="{% static 'img/yt.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/fb.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/ig.png' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/tk.png' %}" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 20px;">
+    </footer>
+</body>
+</html>

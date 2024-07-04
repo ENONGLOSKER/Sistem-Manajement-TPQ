@@ -1,0 +1,172 @@
+
+:root{
+    --satu: #FFBC00;
+    --dua: #005D4F;
+    --tiga: #003C34;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sora", sans-serif;
+}
+body{
+    background-color:#FFFAEC;
+}
+
+nav{
+    background-color: rgba(255, 255, 255, 0.699);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 80px;
+}
+nav img{
+    width: 257px;
+    height: 48px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+}
+nav ul li{
+    display: flex;
+    text-decoration: none;
+}
+nav ul li a{
+   text-decoration: none;
+   font-weight: 500;
+   color: var(--tiga); 
+}
+nav ul li a:hover{
+   border-bottom: 1px solid var(--tiga);
+   color: var(--satu);
+}
+nav .btn{
+    background-color: var(--satu);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 50px;
+}
+nav .btn:hover{
+    background-color: var(--dua);
+    color: white;
+}
+
+
+/* signin */
+.signin{
+    margin: 80px 150px;
+    display: flex;
+    border-radius: 22px;
+    padding:0 100px;
+}
+.signin .kiri{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--tiga);
+    overflow: hidden;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    padding: 20px;
+}
+.signin .kiri .kiri-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    background-color: var(--tiga);
+}
+.signin .kiri img:nth-child(1){
+    width: 200px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+.signin .kiri .kiri-img img{
+    width: 300px;
+}
+.signin .kiri .kiri-img p{
+    width: 70%;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+.signin .kanan{
+    background-color: rgb(223, 223, 223);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    padding: 20px 60px;
+}
+.signin .kanan form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.signin .kanan form input{
+    border: none;
+    width: 100%;
+    height: 20px;
+    padding: 20px 22px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.signin .kanan form button{
+    border-radius: 4px;
+    border: none;
+    padding: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: var(--satu);
+}
+
+
+
+/* footer */
+footer{
+    margin-top: 100px;
+    padding: 50px 80px;
+}
+.footer-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-kiri{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+.footer-kanan{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 80px;
+}
+.footer-kanan ul{
+    display: flex;
+    gap: 20px;
+}
+.footer-kanan li{
+    list-style: none;
+}
+.footer-kanan li a{
+   text-decoration: none;
+   font-weight: 600;
+   color: var(--dua);
+}

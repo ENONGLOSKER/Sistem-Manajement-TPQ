@@ -1,0 +1,237 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block konten%}
+<div id="content">
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+        
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="">
+            <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Dashboard</h1>
+        </div>
+
+        <!-- sweet alert -->
+        {%for message in messages%}
+        {% if message.tags == 'success' %}                     
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>                                            
+        <script>
+            var m="{{message}}";
+            swal("Login",m,"success");
+        </script>
+        {%else%}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>                                            
+        <script>
+            var m="{{message}}";
+            swal("Login",m,"danger");
+        </script>
+        {% endif %}
+        {%endfor%}
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                    aria-labelledby="searchDropdown">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">    
+                <a class="nav-link dropdown-toggle" href="" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform: capitalize;">{{user}}</span>
+                    <img class="img-profile rounded-circle"
+                        src="{%static 'img/icon.png'%}">
+                </a>
+                <!-- Dropdown - User Information -->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+                
+
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                  
+                    <div class="dropdown-divider"></div>
+                    <a href="{% url 'signout' %}" onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </button>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+    <!-- End of Topbar -->
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"></h1>
+        </div>
+
+        <!-- Content data-->
+        <div class="bg-white py-3 px-5 rounded d-flex justify-content-between align-items-center mb-5">
+            <div class="col-8">
+                <h1 style="color: #b4dc01;">Selamat Datang..👋</h1>
+                <p class="lead">Di Sistem Manajemen Taman Pendidikan Quran Suralaga Terpadu. Menghubungkan Guru, Siswa, dan Komunitas dalam Satu Platform.</p>
+            </div>       
+            <img src="{% static 'img/alquran.jpg' %}" alt="img" style="width: 150px;" class="animated-img">       
+        </div>
+
+        <div class="row">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">DATA TPQ</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="#" class="text-gray-800 currency"> Jumlah {{total_tpq}} TPQ</a></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">DATA GURU</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="#" class="text-gray-800 currency">Jumlah {{total_guru}}  Orang</a></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">DATA MURID</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="" class="text-gray-800"> Jumlah {{total_murid}} Orang</a></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-xl-12 col-lg-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Visualisasi Data Keuangan</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                               
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">                                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" >
+                        <div id="container" style="width:100%; height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+        
+        <!-- end content data-->
+    </div>
+
+</div>
+
+
+{%endblock konten%}
+
+
+<!-- SCRIPT -->   
+{%block script%}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const totalTPQ = {{ total_tpq }};
+        const totalMurid = {{ total_murid }};
+        const totalGuru = {{ total_guru }};
+
+        Highcharts.chart('container', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Data Total TPQ, Murid, dan Guru'
+            },
+            xAxis: {
+                categories: ['Total TPQ', 'Total Murid', 'Total Guru']
+            },
+            yAxis: {
+                title: {
+                    text: 'Jumlah'
+                }
+            },
+            series: [{
+                name: 'Total',
+                data: [{
+                    name: 'Total TPQ',
+                    y: totalTPQ,
+                    color: '#7cb5ec' // Warna untuk Total TPQ
+                }, {
+                    name: 'Total Murid',
+                    y: totalMurid,
+                    color: '#90ed7d' // Warna untuk Total Murid
+                }, {
+                    name: 'Total Guru',
+                    y: totalGuru,
+                    color: '#f7a35c' // Warna untuk Total Guru
+                }]
+            }]
+        });
+    });
+</script>
+
+{%endblock script%}
