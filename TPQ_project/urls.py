@@ -24,7 +24,6 @@ urlpatterns = [
     path('gurus/<int:pk>/delete/', views.guru_delete, name='guru_delete'),
 
     path('murids/', views.murid_list, name='murid_list'),
-    path('murids/<int:pk>/', views.murid_detail, name='murid_detail'),
     path('murids/new/', views.murid_create, name='murid_create'),
     path('murids/<int:pk>/edit/', views.murid_update, name='murid_update'),
     path('murids/<int:pk>/delete/', views.murid_delete, name='murid_delete'),
